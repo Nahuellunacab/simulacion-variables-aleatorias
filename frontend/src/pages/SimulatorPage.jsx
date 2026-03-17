@@ -40,11 +40,12 @@ function SimulatorPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 p-10">
+    <div className="min-h-screen bg-gray-100 p-10 flex justify-center">
+        <div className="w-full max-w-2xl">
 
-      <h1 className="text-3xl font-bold mb-6">
-        Laboratorio de Simulación
-      </h1>
+            <h1 className="text-3xl font-bold mb-6 text-center">
+                Laboratorio de Simulación
+            </h1>
 
       <select
         value={distribution}
@@ -88,6 +89,7 @@ function SimulatorPage() {
         Descargar Excel
         </a>
 
+        </div>
     </div>
   )
 }
