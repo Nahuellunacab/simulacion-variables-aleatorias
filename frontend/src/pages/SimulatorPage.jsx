@@ -45,8 +45,29 @@ function SimulatorPage() {
       <div className="w-full max-w-2xl">
 
         <h1 className="text-3xl font-bold mb-6 text-center">
-          Laboratorio de Simulación
+          Trabaj Práctico 2: Simulación de Variables Aleatorias
         </h1>
+
+        <div className="bg-white p-4 rounded shadow mb-6 text-sm text-gray-700">
+
+            <p className="mb-2">
+                Esta aplicación permite simular variables aleatorias utilizando distintas distribuciones probabilísticas.
+            </p>
+
+            <p className="mb-2">
+                Podés elegir entre dos métodos de generación:
+            </p>
+
+            <ul className="list-disc ml-5">
+                <li><strong>Manual:</strong> utiliza fórmulas matemáticas clásicas (transformada inversa, Box-Muller, etc.)</li>
+                <li><strong>Numpy:</strong> utiliza funciones optimizadas de librerías científicas</li>
+            </ul>
+
+            <p className="mt-2">
+                Luego se genera un histograma y se aplica una prueba Chi-Cuadrado para validar la distribución.
+            </p>
+
+        </div>
 
         {/* SELECT DISTRIBUCION */}
         <div className="flex gap-4 mb-4">
@@ -68,8 +89,8 @@ function SimulatorPage() {
             onChange={(e) => setModo(e.target.value)}
             className="p-2 border rounded"
           >
-            <option value="manual">Manual</option>
-            <option value="numpy">Numpy</option>
+            <option value="manual">Manual (fórmulas)</option>
+            <option value="numpy">Numpy (librería)</option>
           </select>
 
         </div>
@@ -90,6 +111,13 @@ function SimulatorPage() {
               <p><strong>Modo:</strong> {result.modo}</p>
               <p><strong>Chi²:</strong> {result.resultado_chi2.chi2}</p>
               <p><strong>p-value:</strong> {result.resultado_chi2.p_value}</p>
+
+              <p>
+                <strong>Interpretación:</strong>{" "}
+                {result.resultado_chi2.p_value > 0.05
+                    ? "El generador es válido (no se rechaza H0)"
+                    : "El generador no se ajusta a la distribución"}
+                </p>
 
               <a
                 href={`http://127.0.0.1:8000/results/datos_${result.distribucion}.xlsx`}
