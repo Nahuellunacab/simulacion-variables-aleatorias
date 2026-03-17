@@ -1,6 +1,7 @@
 import { useState } from "react"
 import ParameterForm from "../components/ParameterForm"
 import api from "../services/api"
+import HistogramChart from "../components/HistogramChart"
 
 function SimulatorPage() {
 
@@ -65,7 +66,10 @@ function SimulatorPage() {
           <p>p-value: {result.resultado_chi2.p_value}</p>
 
         </div>
+        
       )}
+
+        {result && <HistogramChart data={result.datos} />}
 
     </div>
   )
