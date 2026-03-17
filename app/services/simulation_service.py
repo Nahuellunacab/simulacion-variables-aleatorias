@@ -20,5 +20,6 @@ def ejecutar_simulacion(nombre, generador, parametros, n, bins):
     return {
         "distribucion": nombre,
         "cantidad_generada": n,
-        "resultado_chi2": test
+        "resultado_chi2": test,
+        "datos": datos.tolist(),
     }
