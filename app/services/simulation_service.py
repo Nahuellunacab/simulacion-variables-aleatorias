@@ -21,5 +21,5 @@ def ejecutar_simulacion(nombre, generador, parametros, n, bins):
         "distribucion": nombre,
         "cantidad_generada": n,
         "resultado_chi2": test,
-        "datos": datos.tolist(),
+        "datos": datos if isinstance(datos, list) else datos.tolist(),
     }
