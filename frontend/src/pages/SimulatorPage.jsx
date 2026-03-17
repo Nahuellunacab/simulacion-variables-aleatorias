@@ -8,7 +8,7 @@ function SimulatorPage() {
     <div className="min-h-screen bg-gray-100 p-10">
 
       <h1 className="text-3xl font-bold mb-6">
-        Laboratorio de Simulación
+        Selección de distribución para generación de numeros aleatorios
       </h1>
 
       <select
