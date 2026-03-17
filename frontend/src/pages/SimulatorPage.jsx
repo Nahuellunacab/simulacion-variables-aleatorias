@@ -80,6 +80,14 @@ function SimulatorPage() {
         </div>
       )}
 
+      <a
+        href={`http://127.0.0.1:8000/results/datos_${result.distribucion}.xlsx`}
+        target="_blank"
+        className="inline-block mt-4 bg-green-500 text-white px-4 py-2 rounded"
+        >
+        Descargar Excel
+        </a>
+
     </div>
   )
 }
