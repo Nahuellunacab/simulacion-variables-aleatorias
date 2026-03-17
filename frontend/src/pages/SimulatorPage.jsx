@@ -9,28 +9,34 @@ function SimulatorPage() {
   const [result, setResult] = useState(null)
 
   const handleSimulation = async (params) => {
+    try {
+      let url = ""
 
-    let url = ""
+      if (distribution === "uniforme") {
+        url = `/simular/uniforme?a=${params.a}&b=${params.b}&n=${params.n}&bins=${params.bins}`
+      }
 
-    if (distribution === "uniforme") {
-      url = `/simular/uniforme?a=${params.a}&b=${params.b}&n=${params.n}&bins=${params.bins}`
+      if (distribution === "exponencial") {
+        url = `/simular/exponencial?lmbda=${params.lambda}&n=${params.n}&bins=${params.bins}`
+      }
+
+      if (distribution === "poisson") {
+        url = `/simular/poisson?lmbda=${params.lambda}&n=${params.n}&bins=${params.bins}`
+      }
+
+      if (distribution === "normal") {
+        url = `/simular/normal?media=${params.media}&desviacion=${params.desviacion}&n=${params.n}&bins=${params.bins}`
+      }
+
+      const response = await api.get(url)
+
+      console.log(response.data) // 👈 DEBUG
+
+      setResult(response.data)
+
+    } catch (error) {
+      console.error("Error en simulación:", error)
     }
-
-    if (distribution === "exponencial") {
-      url = `/simular/exponencial?lmbda=${params.lambda}&n=${params.n}&bins=${params.bins}`
-    }
-
-    if (distribution === "poisson") {
-      url = `/simular/poisson?lmbda=${params.lambda}&n=${params.n}&bins=${params.bins}`
-    }
-
-    if (distribution === "normal") {
-      url = `/simular/normal?media=${params.media}&desviacion=${params.desviacion}&n=${params.n}&bins=${params.bins}`
-    }
-
-    const response = await api.get(url)
-
-    setResult(response.data)
   }
 
   return (
