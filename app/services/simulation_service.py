@@ -1,7 +1,7 @@
 import os
 
 from app.services.graph_service import generar_histograma
-from app.services.statistics_tests import prueba_chi_cuadrado
+from app.services.statistics import prueba_chi_cuadrado
 from app.utils.export_excel import exportar_excel
 
 
