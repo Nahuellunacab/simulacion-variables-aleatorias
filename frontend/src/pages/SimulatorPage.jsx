@@ -57,19 +57,22 @@ function SimulatorPage() {
       />
 
       {result && (
-        <div className="mt-6 p-4 bg-white rounded shadow">
+        <div className="mt-6">
 
-          <h2 className="text-xl font-bold">Resultado</h2>
+          <div className="p-4 bg-white rounded shadow">
 
-          <p>Distribución: {result.distribucion}</p>
-          <p>Chi²: {result.resultado_chi2.chi2}</p>
-          <p>p-value: {result.resultado_chi2.p_value}</p>
+            <h2 className="text-xl font-bold mb-2">Resultado</h2>
+
+            <p><strong>Distribución:</strong> {result.distribucion}</p>
+            <p><strong>Chi²:</strong> {result.resultado_chi2.chi2}</p>
+            <p><strong>p-value:</strong> {result.resultado_chi2.p_value}</p>
+
+          </div>
+
+          <HistogramChart data={result.datos} />
 
         </div>
-        
       )}
-
-        {result && <HistogramChart data={result.datos} />}
 
     </div>
   )
