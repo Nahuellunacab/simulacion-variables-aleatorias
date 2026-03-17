@@ -1,10 +1,10 @@
 # Simulación de Variables Aleatorias
 
-Aplicación **fullstack** desarrollada en **Python + FastAPI + React** para la generación y análisis de variables aleatorias.
+Aplicación **fullstack** desarrollada en **Python + FastAPI + React** para la generación, visualización y validación de variables aleatorias.
 
 Este proyecto fue realizado como parte del **Trabajo Práctico N°2 de la materia Simulación (UTN)**.
 
-Permite generar valores según distintas distribuciones, visualizar los resultados mediante gráficos interactivos, exportar datos y validar los generadores mediante pruebas estadísticas.
+Permite generar valores según distintas distribuciones probabilísticas, visualizar los resultados mediante gráficos interactivos, exportar datos y validar los generadores mediante pruebas estadísticas.
 
 ---
 
@@ -24,11 +24,32 @@ Desarrollar una librería que permita:
 
 * Generación de variables aleatorias
 * Soporte para múltiples distribuciones
-* Visualización mediante histogramas
+* Visualización mediante histogramas interactivos
 * Prueba estadística Chi-Cuadrado
-* Exportación a Excel
+* Exportación de datos a Excel
 * API REST
 * Interfaz web interactiva
+
+---
+
+# 🧠 Métodos de generación
+
+El sistema permite elegir entre dos enfoques:
+
+### 🔹 Manual (implementación teórica)
+
+Se utilizan métodos matemáticos clásicos:
+
+* Transformada inversa (Exponencial)
+* Método de Box-Muller (Normal)
+* Algoritmo de Knuth (Poisson)
+* Transformación lineal (Uniforme)
+
+### 🔹 Numpy (librería)
+
+Se utilizan funciones optimizadas de `NumPy`.
+
+👉 Esto permite **comparar resultados entre teoría y librerías**, agregando valor académico al proyecto.
 
 ---
 
@@ -97,6 +118,13 @@ Cada endpoint recibe parámetros y devuelve:
 * resultado Chi²
 * p-value
 
+Además, permite seleccionar el modo:
+
+```
+?modo=manual
+?modo=numpy
+```
+
 ---
 
 # 🎨 Frontend
@@ -111,9 +139,10 @@ Desarrollado con:
 Permite:
 
 * Seleccionar distribución
+* Elegir método de generación (manual o numpy)
 * Ingresar parámetros
 * Ejecutar simulación
-* Visualizar histogramas
+* Visualizar histogramas interactivos
 * Ver resultados estadísticos
 * Descargar archivo Excel
 
@@ -121,11 +150,11 @@ Permite:
 
 # 📂 Resultados generados
 
-Cada simulación produce:
+Cada simulación produce automáticamente:
 
 * Histograma (`.png`)
 * Archivo Excel (`.xlsx`)
-* Resultado estadístico
+* Resultado de la prueba estadística
 
 Ubicación:
 
@@ -168,17 +197,20 @@ npm run dev
 # 🌐 Accesos
 
 * Backend: http://127.0.0.1:8000
-* Docs: http://127.0.0.1:8000/docs
+* Documentación: http://127.0.0.1:8000/docs
 * Frontend: http://localhost:5173
 
 ---
 
 # 🧪 Validación estadística
 
-Se implementa la prueba **Chi-Cuadrado** para validar si los datos generados siguen la distribución teórica.
+Se implementa la prueba **Chi-Cuadrado** para evaluar si los datos generados siguen la distribución teórica.
 
-* Chi²
+Resultados:
+
+* Estadístico Chi²
 * p-value
+* Interpretación del test
 
 ---
 
@@ -208,12 +240,20 @@ Se implementa la prueba **Chi-Cuadrado** para validar si los datos generados sig
 Materia: **Simulación**
 Trabajo Práctico N°2: **Variables Aleatorias**
 
+Consignas cumplidas:
+
+* ✔ Generación de variables aleatorias
+* ✔ Parametrización de distribuciones
+* ✔ Visualización de resultados
+* ✔ Pruebas estadísticas
+* ✔ Generación de gráficos
+
 ---
 
 # 🚀 Mejoras futuras
 
-* Comparación entre distribuciones
-* Animaciones de simulación
+* Comparación visual entre métodos (manual vs numpy)
+* Superposición de curvas teóricas
 * Simulación de Monte Carlo
 * Modelos de colas
 * Deploy en la nube
@@ -222,4 +262,4 @@ Trabajo Práctico N°2: **Variables Aleatorias**
 
 # 👨‍💻 Autor
 
-Desarrollado por Nahuel en el contexto académico de UTN.
+Desarrollado por **Nahuel** en el contexto académico de UTN.
